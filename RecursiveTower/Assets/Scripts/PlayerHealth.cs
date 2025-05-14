@@ -43,12 +43,25 @@ public class PlayerHealth : MonoBehaviour
 		if (deathScreen != null)
 			deathScreen.SetActive(true);
 		Time.timeScale = 0f; // Pause game
+		GameManager.instance.TryUpdateHighScore(score);
 	}
 
 	public void RestartGame()
 	{
 		SceneManager.LoadScene("GameSene");
 		Time.timeScale = 1f; // Unpause the game
+	}
+
+	public void ToMainMenu()
+	{
+		GameManager.instance.TryUpdateHighScore(score);
+		SceneManager.LoadScene("MainMenu");
+		Time.timeScale = 1f; // Unpause the game
+
+		foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+		{
+			Destroy(enemy);
+		}
 	}
 
 	public void TakeDamage(int amount)

@@ -146,15 +146,15 @@ public class BoardManager : MonoBehaviour
 		// One tile inward from the bottom and top edges
 		for (int x = 0; x < columns; x++)
 		{
-			spawnPositions.Add(new Vector3(x * tileSize, 1 * tileSize, 0f));               // just above bottom wall
-			spawnPositions.Add(new Vector3(x * tileSize, (rows - 2) * tileSize, 0f));      // just below top wall
+			spawnPositions.Add(new Vector3(x * tileSize, 0 * tileSize, 0f));               // just above bottom wall
+			spawnPositions.Add(new Vector3(x * tileSize, (rows - 1) * tileSize, 0f));      // just below top wall
 		}
 
 		// One tile inward from the left and right edges
 		for (int y = 0; y < rows; y++)
 		{
-			spawnPositions.Add(new Vector3(1 * tileSize, y * tileSize, 0f));               // just right of left wall
-			spawnPositions.Add(new Vector3((columns - 2) * tileSize, y * tileSize, 0f));   // just left of right wall
+			spawnPositions.Add(new Vector3(0 * tileSize, y * tileSize, 0f));               // just right of left wall
+			spawnPositions.Add(new Vector3((columns - 1) * tileSize, y * tileSize, 0f));   // just left of right wall
 		}
 
 		// Randomly choose a valid spawn position
@@ -169,6 +169,13 @@ public class BoardManager : MonoBehaviour
     {
         while (true)
         {
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if (player == null)
+			{
+				Debug.Log("BoardManager: Player missing during spawn loop. Stopping spawns.");
+				yield break;
+			}
+
             yield return new WaitForSeconds(currentSpawnDelay);
             SpawnEnemyAtEdge();
             currentSpawnDelay = Mathf.Max(currentSpawnDelay * spawnAcceleration, minSpawnDelay);
@@ -177,6 +184,12 @@ public class BoardManager : MonoBehaviour
 
     public void StartSpawningEnemies()
     {
+	    GameObject player = GameObject.FindGameObjectWithTag("Player");
+		if (player == null)
+		{
+			Debug.LogWarning("BoardManager: No player found. Skipping enemy spawn.");
+			return;
+		}
         currentSpawnDelay = initialSpawnDelay / Mathf.Max(initialEnemyCount, 1);
         spawnRoutine = StartCoroutine(SpawnEnemiesOverTime());
     }

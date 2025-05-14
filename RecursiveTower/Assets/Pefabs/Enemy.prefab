@@ -143,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005220264, y: -0.25840235}
+  m_Offset: {x: -0.0012416542, y: -0.28824243}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -154,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.53017753, y: 0.4831953}
+  m_Size: {x: 0.44264668, y: 0.42351514}
   m_EdgeRadius: 0
 --- !u!58 &3467049652297489135
 CircleCollider2D:
@@ -237,6 +237,7 @@ MonoBehaviour:
   minOrbitSpeed: 60
   maxOrbitSpeed: 180
   directionChangeInterval: 2
+  player: {fileID: 5547916326561662631, guid: 3d49d5ef8088c204086d6be4a9a44ed0, type: 3}
   projectilePrefab: {fileID: 4056145471285838888, guid: 9b77cc2d34b1ff2d4a41707f9c80fc28, type: 3}
   fireInterval: 1
   firingDistance: 4

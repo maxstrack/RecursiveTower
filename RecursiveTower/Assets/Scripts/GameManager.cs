@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public BoardManager boardScript;
+    private BoardManager boardScript;
+	public int highScore = 0;
 
     void Awake()
     {
@@ -23,16 +24,35 @@ public class GameManager : MonoBehaviour
 
         // Subscribe to scene loaded event
         SceneManager.sceneLoaded += OnSceneLoaded;
+		//highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameSene")
-        {
-            Debug.Log("GameManager: Scene loaded, initializing board.");
-            InitGame();
-        }
+	    if (scene.name == "GameSene")
+		{
+			Debug.Log("GameManager: Scene loaded, initializing board.");
+
+			// Find the new BoardManager in the freshly loaded scene
+			boardScript = FindObjectOfType<BoardManager>();
+
+			if (boardScript != null)
+				InitGame();
+			else
+				Debug.LogWarning("GameManager: No BoardManager found in scene.");
+		}
     }
+
+	public void TryUpdateHighScore(int currentScore)
+	{
+		if (currentScore > highScore)
+		{
+			highScore = currentScore;
+			PlayerPrefs.SetInt("HighScore", highScore);
+			PlayerPrefs.Save();
+			Debug.Log("New high score: " + highScore);
+		}
+	}
 
     void InitGame()
     {

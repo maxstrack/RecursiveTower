@@ -20,10 +20,8 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!other.CompareTag("Player"))
+		if (!(other.CompareTag("Player") || other.CompareTag("Projectile")))
 		{
-			Debug.Log("Projectile hit something: " + other.name);
-
 			if (other.CompareTag("Enemy"))
 			{
 				Debug.Log("Projectile hit " + other.name);

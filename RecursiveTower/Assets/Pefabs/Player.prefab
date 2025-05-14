@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 6750546085753078319}
   - component: {fileID: 4328089264909433440}
   - component: {fileID: 7486155481190075290}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,10 +234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
   maxHealth: 10
-  deathScreen: {fileID: 1160824839519884421, guid: 952cdc9eae18bf5a6b327b4478c44f06, type: 3}
-  invincibilityDuration: 1
-  playerRenderer: {fileID: 0}
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  deathScreen: {fileID: 0}
+  invincibilityDuration: 0.25
+  playerRenderer: {fileID: 6687408008726379416}
+  flashColor: {r: 1, g: 0.01881078, b: 0, a: 1}
   flashDuration: 0.1
   scoreText: {fileID: 0}
 --- !u!114 &4328089264909433440
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d8d7cc3b279f7429174f33da2e8835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 5
   rb2d: {fileID: 3583564297996886352}
 --- !u!114 &7486155481190075290
 MonoBehaviour:
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2674065427579443251}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
