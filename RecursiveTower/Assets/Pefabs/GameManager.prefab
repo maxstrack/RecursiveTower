@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2538440835061112401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3815453359914041703}
+  - component: {fileID: 8009380903907465628}
+  - component: {fileID: -2419531644201354541}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3815453359914041703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538440835061112401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8009380903907465628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538440835061112401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c64c1536cb643408334276120235fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 16
+  rows: 16
+  tileSize: 1
+  floorTiles:
+  - {fileID: 8182892437515650500, guid: c8358216f8568fcfcadb403959b6a79e, type: 3}
+  - {fileID: 8182892437515650500, guid: 7c79f2fa4dca1a2f3be9339de550b44f, type: 3}
+  - {fileID: 8182892437515650500, guid: c1fc0dbd6ad7856699113ea1b6baeac9, type: 3}
+  - {fileID: 8182892437515650500, guid: 23182d5ef63b752e59bc141a5605635b, type: 3}
+  enemyPrefabs:
+  - {fileID: 4950784409871709689, guid: c5a31227ff3da2140bed0a6d266e6354, type: 3}
+  topWallTiles:
+  - {fileID: 581303865898381659, guid: 7fc8f591a224e9c8bb5e8cef9acbe983, type: 3}
+  bottomWallTiles:
+  - {fileID: 581303865898381659, guid: 16561207b63adb4fb8b321283bc93698, type: 3}
+  leftWallTiles:
+  - {fileID: 581303865898381659, guid: e3f6aac9b37474fbab1c4529bc1cc82b, type: 3}
+  rightWallTiles:
+  - {fileID: 581303865898381659, guid: b20ecb2a08636909ca2e52806a38c3c1, type: 3}
+  cornerTopLeft: {fileID: 581303865898381659, guid: bfa6b97e0d1dd9ab4b56ddff5e0f52d2, type: 3}
+  cornerTopRight: {fileID: 581303865898381659, guid: 2f7044f37d1bd801e8eda098a060a9a5, type: 3}
+  cornerBottomLeft: {fileID: 581303865898381659, guid: 42ec0444e4e9960c5bba0c073be5c347, type: 3}
+  cornerBottomRight: {fileID: 581303865898381659, guid: a94788506ea95cfdba1b533ac7c6ce13, type: 3}
+  initialEnemyCount: 4
+  initialSpawnDelay: 5
+  spawnAcceleration: 0.3
+  minSpawnDelay: 1.5
+--- !u!114 &-2419531644201354541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538440835061112401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa29678715e534cadce4824df760a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardScript: {fileID: 0}

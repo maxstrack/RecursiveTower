@@ -1,0 +1,101 @@
+[
+  {
+    "label": "player.get_health()",
+    "functionName": "player.get_health()",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Returns the player's current health as a number. Takes no arguments."
+  },
+  {
+    "label": "player.heal([])",
+    "functionName": "player.heal",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Heals the player by a specified amount. Takes 1 argument: a number."
+  },
+  {
+    "label": "player.take_damage([])",
+    "functionName": "player.take_damage",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Inflicts damage to the player. Takes 1 argument: a number."
+  },
+  {
+    "label": "player.has_status(\"burning\")",
+    "functionName": "player.has_status(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Checks if the player has a specific status effect. Returns true or false. Takes 1 argument: a status name string."
+  },
+  {
+    "label": "player.get_status_duration(\"burning\")",
+    "functionName": "player.get_status_duration(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Returns the remaining duration of a status effect on the player. Takes 1 argument: a status name string."
+  },
+  {
+    "label": "target.take_damage([])",
+    "functionName": "target.take_damage",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Deals a specified amount of damage to the target. Takes 1 argument: a number."
+  },
+  {
+    "label": "target.apply_status(\"burning\")",
+    "functionName": "target.apply_status(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Applies a status effect to the target. Takes 1 argument: a status name string."
+  },
+  {
+    "label": "target.knockback([])",
+    "functionName": "target.knockback",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Pushes the target away with a given force. Takes 1 argument: a number representing strength."
+  },
+  {
+    "label": "if([], [])",
+    "functionName": "if",
+    "argCount": 2,
+    "isTerminal": false,
+    "description": "Executes the second expression if the first condition is true. Takes 2 arguments: a condition (boolean) and a result expression."
+  },
+  {
+    "label": "equals([], [])",
+    "functionName": "equals",
+    "argCount": 2,
+    "isTerminal": false,
+    "description": "Compares two values for equality. Returns true or false. Takes 2 arguments: any two comparable values."
+  },
+  {
+    "label": "greater_than([], [])",
+    "functionName": "greater_than",
+    "argCount": 2,
+    "isTerminal": false,
+    "description": "Checks if the first value is greater than the second. Returns true or false. Takes 2 arguments: two numbers."
+  },
+  {
+    "label": "add([], [])",
+    "functionName": "add",
+    "argCount": 2,
+    "isTerminal": false,
+    "description": "Adds two numbers together. Returns a number. Takes 2 arguments: two numbers."
+  },
+  {
+    "label": "const(5)",
+    "functionName": "const(5)",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Represents the constant number 5. Returns the number 5. Takes no arguments."
+  },
+  {
+    "label": "const(1)",
+    "functionName": "const(1)",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Represents the constant number 1. Returns the number 1. Takes no arguments."
+  }
+]
+
