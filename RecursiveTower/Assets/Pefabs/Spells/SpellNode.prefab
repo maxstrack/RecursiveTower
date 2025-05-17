@@ -323,7 +323,6 @@ MonoBehaviour:
   slotParent: {fileID: 8210372945307963802}
   labelPrefix: {fileID: 5660529525272859142}
   labelSuffix: {fileID: 3614798786088060430}
-  commaLabelPrefab: {fileID: 6173067647333659690, guid: 03ce6690e4c6a20afaa78ef8b960593a, type: 3}
   indentedSlotRowPrefab: {fileID: 1127916952965225689}
 --- !u!114 &7933825048620238872
 MonoBehaviour:

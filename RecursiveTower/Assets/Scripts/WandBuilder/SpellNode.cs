@@ -12,7 +12,6 @@ public class SpellNode : MonoBehaviour
 
 	public TMP_Text labelPrefix;
 	public TMP_Text labelSuffix;
-	public TMP_Text commaLabelPrefab;
 
 	public GameObject indentedSlotRowPrefab; // assign in inspector
 
@@ -62,5 +61,65 @@ public class SpellNode : MonoBehaviour
 
         return $"{snippet.functionName}({string.Join(", ", args)})";
     }
+
+	public SpellRuntimeNode ToRuntimeNode()
+	{
+		switch (snippet.functionName)
+		{
+			case "const":
+				return new ConstNode(snippet.constValue);
+
+			case "player.get_health":
+				return new PlayerGetHealthNode();
+
+			case "add":
+				return new AddNode(
+					GetChildRuntimeNodeAt(0),
+					GetChildRuntimeNodeAt(1)
+				);
+
+			case "target.take_damage":
+				return new TakeDamageNode(
+					GetChildRuntimeNodeAt(0)
+				);
+
+			default:
+				Debug.LogError("Unknown spell function: " + snippet.functionName);
+				return new ConstNode(0);
+		}
+	}
+
+	private SpellRuntimeNode GetChildRuntimeNodeAt(int index)
+	{
+		Debug.Log($"[DEBUG] Resolving argument {index} for function {snippet.functionName}");
+
+		Transform row = slotParent.GetChild(index);
+		if (row == null) {
+			Debug.LogError($"Row {index} not found in slotParent of {gameObject.name}");
+			return new ConstNode(0);
+		}
+
+		Transform slotContainer = row.Find("SlotContainer");
+		if (slotContainer == null) {
+			Debug.LogError($"SlotContainer not found in row {index} of {gameObject.name}");
+			return new ConstNode(0);
+		}
+
+		SpellSlot slot = slotContainer.GetComponentInChildren<SpellSlot>(true);
+		if (slot == null) {
+			Debug.LogError($"No SpellSlot found in SlotContainer at index {index} of {gameObject.name}");
+			return new ConstNode(0);
+		}
+
+		SpellNode childNode = slot.contentParent.GetComponentInChildren<SpellNode>(true);
+		if (childNode == null) {
+			Debug.LogError($"No SpellNode found in slot.contentParent of argument {index} for {snippet.functionName}");
+			return new ConstNode(0);
+		}
+
+		return childNode.ToRuntimeNode();
+
+	}
+
 }
 

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "const(1)",
+    "functionName": "const(1)",
+    "argCount": 1,
+    "isTerminal": true,
+    "description": "Returns a constant number.\nTakes 1 argument: a literal value entered by the user.",
+    "constValue": 1
+  },
+  {
+    "label": "player.get_health()",
+    "functionName": "player.get_health",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Returns the player's current health as a number.\nTakes no arguments."
+  },
+  {
+    "label": "add([], [])",
+    "functionName": "add",
+    "argCount": 2,
+    "isTerminal": false,
+    "description": "Adds two numbers and returns the result.\nTakes 2 arguments: (a, b)."
+  },
+  {
+    "label": "target.take_damage([])",
+    "functionName": "target.take_damage",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Damages the enemy by the given amount.\nTakes 1 argument: a number."
+  },
+  {
+    "label": "player.heal([])",
+    "functionName": "player.heal",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Heals the player by a specified amount.\nTakes 1 argument: a number."
+  }
+]

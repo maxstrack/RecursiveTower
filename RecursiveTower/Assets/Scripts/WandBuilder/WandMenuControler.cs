@@ -159,6 +159,11 @@ public class WandMenuController : MonoBehaviour
 		}
 		return null;
 	}
+
+	public SpellNode GetRootSpellNode()
+	{
+		return spellEditorRootSlot.GetComponentInChildren<SpellNode>();
+	}
 }
 
 [System.Serializable]

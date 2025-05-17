@@ -81,6 +81,16 @@ public class PlayerHealth : MonoBehaviour
 			StartCoroutine(InvincibilityFrames());
 		}
 	}
+
+	public void Heal(int amount) {
+        currentHealth += amount;
+        Debug.Log("Player healed. New health: " + currentHealth);
+    }
+
+	public int GetHealth() {
+        return currentHealth; 
+    }
+
 	IEnumerator DamageFlash()
 	{
 		if (playerRenderer != null)

@@ -1,5 +1,19 @@
 [
   {
+    "label": "player",
+    "functionName": "player",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "The player's entity."
+  },
+  {
+    "label": "player.get_distance([])",
+    "functionName": "player.get_distance",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Returns the distance between the player and the inputed entity.\nTakes 1 argument: an entity."
+  },
+  {
     "label": "player.get_health()",
     "functionName": "player.get_health()",
     "argCount": 0,
@@ -35,11 +49,25 @@
     "description": "Returns the remaining duration of a status effect on the player.\nTakes 1 argument: a status name string."
   },
   {
-    "label": "target.get_distance(\"Player\")",
-    "functionName": "target.get_distance(\"Player\")",
+    "label": "player.get_neighbor()",
+    "functionName": "player.neighbor()",
     "argCount": 0,
     "isTerminal": true,
-    "description": "Returns the distance between the target and the player"
+    "description": "Returns the entity closest to the player.\nTakes no arguments."
+  },
+  {
+    "label": "target",
+    "functionName": "target",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "The target's entity (the entity that is hit with the spell)."
+  },
+  {
+    "label": "target.get_distance([])",
+    "functionName": "target.get_distance",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Returns the distance between the target and the inputed entity.\nTakes 1 argument: an entity."
   },
   {
     "label": "target.take_damage([])",
@@ -63,6 +91,13 @@
     "description": "Pushes the target away with a given force.\nTakes 1 argument: a number representing strength."
   },
   {
+    "label": "target.get_neighbor()",
+    "functionName": "target.neighbor()",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Returns the entity closest to the target.\nTakes no arguments."
+  },
+  {
     "label": "if([], [])",
     "functionName": "if",
     "argCount": 2,
@@ -74,7 +109,7 @@
     "functionName": "if_else",
     "argCount": 3,
     "isTerminal": false,
-    "description": "Executes the second expression if the first condition is true. Otherwise execute the third.\nTakes 2 arguments: a condition (boolean) and a result expression."
+    "description": "Executes the second expression if the first condition is true. Otherwise it execute the third.\nTakes 3 arguments: a condition (boolean), an expression if true, and an expression if false ."
   },
   {
     "label": "equals([], [])",

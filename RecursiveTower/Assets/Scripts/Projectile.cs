@@ -5,35 +5,37 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 10f;
-    public float lifetime = 3f;
-
-    void Start()
-    {
-        Destroy(gameObject, lifetime);
-    }
+    public float speed;
+    public SpellNode spellNodeUI;
+    public GameObject playerReference;
 
     void Update()
     {
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (!(other.CompareTag("Player") || other.CompareTag("Projectile")))
-		{
-			if (other.CompareTag("Enemy"))
-			{
-				Debug.Log("Projectile hit " + other.name);
-				EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-				if (enemy != null)
-				{
-					enemy.TakeDamage(1);
-				}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && spellNodeUI != null && playerReference != null)
+        {
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+				/*
+				// For Spell Building
+                SpellContext ctx = new SpellContext(playerReference.GetComponent<PlayerHealth>(), enemy);
+                var runtimeSpell = spellNodeUI.ToRuntimeNode();
+                runtimeSpell?.Evaluate(ctx);
+				*/
+				enemy.TakeDamage(1);
+            }
 
-			}
-			Destroy(gameObject);
-		}
-	}
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
 
