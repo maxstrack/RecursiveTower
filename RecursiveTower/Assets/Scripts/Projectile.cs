@@ -18,16 +18,14 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && spellNodeUI != null && playerReference != null)
         {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-				/*
 				// For Spell Building
                 SpellContext ctx = new SpellContext(playerReference.GetComponent<PlayerHealth>(), enemy);
                 var runtimeSpell = spellNodeUI.ToRuntimeNode();
                 runtimeSpell?.Evaluate(ctx);
-				*/
-				enemy.TakeDamage(1);
+				//enemy.TakeDamage(1);
             }
 
             Destroy(gameObject);

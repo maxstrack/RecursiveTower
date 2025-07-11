@@ -84,7 +84,10 @@ public class PlayerHealth : MonoBehaviour
 
 	public void Heal(int amount) {
         currentHealth += amount;
-        Debug.Log("Player healed. New health: " + currentHealth);
+		if (currentHealth > maxHealth)
+			currentHealth = maxHealth;
+
+		UpdateUI();
     }
 
 	public int GetHealth() {

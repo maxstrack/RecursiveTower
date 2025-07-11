@@ -35,6 +35,20 @@
     "description": "Inflicts damage to the player.\nTakes 1 argument: a number."
   },
   {
+    "label": "player.has_status(\"burning\")",
+    "functionName": "player.has_status(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Checks if the player has a specific status effect.\nReturns true or false.\nTakes 1 argument: a status name string."
+  },
+  {
+    "label": "player.get_status_duration(\"burning\")",
+    "functionName": "player.get_status_duration(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Returns the remaining duration of a status effect on the player.\nTakes 1 argument: a status name string."
+  },
+  {
     "label": "player.get_neighbor()",
     "functionName": "player.neighbor()",
     "argCount": 0,
@@ -61,6 +75,20 @@
     "argCount": 1,
     "isTerminal": false,
     "description": "Deals a specified amount of damage to the target.\nTakes 1 argument: a number."
+  },
+  {
+    "label": "target.apply_status(\"burning\")",
+    "functionName": "target.apply_status(\"burning\")",
+    "argCount": 0,
+    "isTerminal": true,
+    "description": "Applies a status effect to the target.\nTakes 1 argument: a status name string."
+  },
+  {
+    "label": "target.knockback([])",
+    "functionName": "target.knockback",
+    "argCount": 1,
+    "isTerminal": false,
+    "description": "Pushes the target away with a given force.\nTakes 1 argument: a number representing strength."
   },
   {
     "label": "target.get_neighbor()",

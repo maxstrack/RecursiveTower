@@ -15,7 +15,7 @@ public class WandController : MonoBehaviour
 
     void Start()
     {
-        wandMenu = FindObjectOfType<WandMenuController>(); // or set via inspector
+        wandMenu = FindObjectOfType<WandMenuController>();
     }
 
     void Update()

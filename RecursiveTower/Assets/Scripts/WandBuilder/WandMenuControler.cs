@@ -112,7 +112,7 @@ public class WandMenuController : MonoBehaviour
 
 	void BuildInitialSpell()
 	{
-		// 1. Find the snippets needed for the expression
+		// Find the snippets needed for the expression
 		SpellSnippet root = FindSnippet("target.take_damage");
 		SpellSnippet arg0 = FindSnippet("const(1)");
 
@@ -122,7 +122,7 @@ public class WandMenuController : MonoBehaviour
 			return;
 		}
 
-		// 2. Get the root SpellSlot from the editor
+		// Get the root SpellSlot from the editor
 		SpellSlot rootSlot = spellEditorRootSlot.GetComponent<SpellSlot>();
 		if (rootSlot == null)
 		{
@@ -130,15 +130,15 @@ public class WandMenuController : MonoBehaviour
 			return;
 		}
 
-		// 3. Instantiate the root SpellNode into the slot's contentParent
+		// Instantiate the root SpellNode into the slot's contentParent
 		GameObject rootNode = Instantiate(spellNodePrefab, rootSlot.contentParent);
 		SpellNode rootScript = rootNode.GetComponent<SpellNode>();
 		rootScript.Initialize(root);
 
-		// 4. Mark the root slot as filled (to hide border etc.)
+		// Mark the root slot as filled (to hide border etc.)
 		rootSlot.SetFilled(true);
 
-		// 5. Find the first slot inside the root node to insert const(1)
+		// Find the first slot inside the root node to insert const(1)
 		SpellSlot[] childSlots = rootNode.GetComponentsInChildren<SpellSlot>();
 		if (childSlots.Length > 0)
 		{

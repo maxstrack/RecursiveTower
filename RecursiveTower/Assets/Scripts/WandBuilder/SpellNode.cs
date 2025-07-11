@@ -66,10 +66,13 @@ public class SpellNode : MonoBehaviour
 	{
 		switch (snippet.functionName)
 		{
-			case "const":
-				return new ConstNode(snippet.constValue);
+			case "const(1)":
+				return new ConstNode(1);
 
-			case "player.get_health":
+			case "const(5)":
+				return new ConstNode(5);
+
+			case "player.get_health()":
 				return new PlayerGetHealthNode();
 
 			case "add":
@@ -79,8 +82,55 @@ public class SpellNode : MonoBehaviour
 				);
 
 			case "target.take_damage":
-				return new TakeDamageNode(
-					GetChildRuntimeNodeAt(0)
+				return new TargetTakeDamageNode(GetChildRuntimeNodeAt(0));
+
+			case "player.heal":
+				return new HealNode(GetChildRuntimeNodeAt(0));
+
+			case "player":
+				return new PlayerNode();
+
+			case "target":
+			    return new TargetNode();
+
+			case "target.neighbor()":
+			    return new GetTargetNeighborNode();
+
+			case "player.get_distance":
+				return new GetDistanceNode(GetChildRuntimeNodeAt(0));
+
+			case "player.take_damage":
+				return new PlayerTakeDamageNode(GetChildRuntimeNodeAt(0));
+
+			case "player.neighbor()":
+				return new PlayerNeighborNode();
+
+			case "target.get_distance":
+				return new TargetGetDistanceNode(GetChildRuntimeNodeAt(0));
+
+			case "if":
+				return new IfNode(
+					GetChildRuntimeNodeAt(0),
+					GetChildRuntimeNodeAt(1)
+				);
+
+			case "if_else":
+				return new IfElseNode(
+					GetChildRuntimeNodeAt(0),
+					GetChildRuntimeNodeAt(1),
+					GetChildRuntimeNodeAt(2)
+				);
+
+			case "equals":
+				return new EqualsNode(
+					GetChildRuntimeNodeAt(0),
+					GetChildRuntimeNodeAt(1)
+				);
+
+			case "greater_than":
+				return new GreaterThanNode(
+					GetChildRuntimeNodeAt(0),
+					GetChildRuntimeNodeAt(1)
 				);
 
 			default:
